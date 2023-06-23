@@ -1,0 +1,41 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+*.xml
+*.name
+.idea/.gitignore
+.idea/modules/demo.main.iml
+.gradle/vcs-1/gc.properties
+.gradle/buildOutputCleanup/cache.properties
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+build/tmp/compileJava/compileTransaction/stash-dir/CustomerServiceImpl.class.uniqueId0
+*.bin
+.gradle/7.6.1/executionHistory/executionHistory.lock
+.gradle/
+build/
+/
+HELP.md
+settings.gradle
+gradle/wrapper/gradle-wrapper.properties
+gradlew.bat
+gradlew

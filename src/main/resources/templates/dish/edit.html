@@ -1,0 +1,82 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org"><head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Edit Dish</title>-->
+
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Edit Dish</h1>-->
+
+<!--<a href="/dish/list"><button>Back</button></a> <br>-->
+<!--<form th:object="${dish}" th:action="@{/dish/edit}" method="post">-->
+
+<!--  <div>-->
+<!--    <input type="hidden" th:field="*{id}">-->
+<!--  </div>-->
+
+<!--  <div>-->
+<!--    <label>name</label>-->
+<!--    <input th:field="*{name}">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label>calo</label>-->
+<!--    <input th:field="*{calo}">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label>price</label>-->
+<!--    <input th:field="*{price}">-->
+<!--  </div>-->
+<!--  <button type="submit">Edit</button>-->
+
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Dish</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1>Edit Dish</h1>
+    <a href="/dish/list" class="btn btn-secondary mb-3">Back</a> <br>
+
+    <form th:object="${dish}" th:action="@{/dish/edit}" method="post">
+        <div class="form-group">
+            <input type="hidden" th:field="*{id}">
+        </div>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" th:field="*{name}">
+        </div>
+        <div class="form-group">
+            <label for="calo">Calo</label>
+            <input type="number" class="form-control" id="calo" th:field="*{calo}">
+        </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" th:field="*{price}">
+        </div>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

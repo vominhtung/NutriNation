@@ -1,0 +1,90 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>list customer</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>List Customer</h1>-->
+
+<!--<a href="/create"><button>Create Customer</button></a> <br> <br>-->
+<!--<a href="/dish/list"><button>List Dish</button></a> <br> <br>-->
+
+<!--<table border="1" cellpadding="0" cellspacing="0">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Id</th>-->
+<!--        <th>Name</th>-->
+<!--        <th>Address</th>-->
+<!--        <th>Email</th>-->
+<!--        <th>Phone</th>-->
+<!--        <th>Edit</th>-->
+<!--        <th>Delete</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <th:block th:each="customer : ${customers}">-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--            <th th:text="${customer.id}"></th>-->
+<!--            <td th:text="${customer.name}"></td>-->
+<!--            <td th:text="${customer.address}"></td>-->
+<!--            <td th:text="${customer.email}"></td>-->
+<!--            <td th:text="${customer.phone}"></td>-->
+<!--            <td><a th:href="@{/customer/edit/__${customer.id}__ }"><button>Edit</button></a></td>-->
+<!--            <td><a th:href="@{/customer/delete/__${customer.id}__ }"><button>Delete</button></a></td>-->
+<!--        <tr/>-->
+<!--        </tbody>-->
+<!--    </th:block>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List Customer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">List Customer</h1>
+    <div class="text-right">
+        <a href="/create" class="btn btn-primary">Create Customer</a>
+        <a href="/dish/list" class="btn btn-secondary">List Dish</a>
+    </div>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.id}"></td>
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.address}"></td>
+            <td th:text="${customer.email}"></td>
+            <td th:text="${customer.phone}"></td>
+            <td><a th:href="@{/customer/edit/__${customer.id}__ }" class="btn btn-warning">Edit</a></td>
+            <td><a th:href="@{/customer/delete/__${customer.id}__ }" class="btn btn-danger">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

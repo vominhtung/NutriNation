@@ -1,0 +1,98 @@
+create database nutrination;
+use nutrination;
+create table bmi(
+	id int primary key auto_increment,
+    name varchar(25) );
+create table dish (
+	id int primary key	 auto_increment,
+	calo double,
+    name varchar(50),
+    price double,
+    bmi_id int,
+    meal_id int );
+create table customer(
+	id int primary key auto_increment,
+    address  varchar(250),
+    age int,
+    email varchar(20) unique not null,
+    gender varchar (10),
+    name varchar(25),
+    password varchar(200),
+    phone varchar(15),
+    bmi_id int,
+    order_id int,
+    is_status bit);
+create table meal(
+		id int primary key auto_increment,
+        name varchar(25));
+create table menu(
+		id int primary key auto_increment,
+        meal_id int);
+create table orders (
+		id int primary key auto_increment,
+        name varchar(10));
+create table orders_dishes(
+		order_id int,
+        dishes_id int);
+        -- customer --
+        ALTER TABLE customer ADD CONSTRAINT FK_customer_bmi FOREIGN KEY (`bmi_id`) REFERENCES bmi (`id`);
+        ALTER TABLE customer ADD CONSTRAINT FK_customer_order FOREIGN KEY (`order_id`) REFERENCES orders (`id`);
+        -- dish ---
+        ALTER TABLE dish ADD CONSTRAINT FK_dish_bmi FOREIGN KEY (`bmi_id`) REFERENCES bmi (`id`);
+        ALTER TABLE dish ADD CONSTRAINT FK_dish_meal FOREIGN KEY (`meal_id`) REFERENCES meal (`id`);
+        -- menu --
+           ALTER TABLE menu ADD CONSTRAINT FK_menu_meal FOREIGN KEY (`meal_id`) REFERENCES meal (`id`);
+       --   orders_dishes --
+         ALTER TABLE orders_dishes ADD CONSTRAINT FK_orders_dishes FOREIGN KEY (`order_id`) REFERENCES orders (`id`);
+         ALTER TABLE orders_dishes ADD CONSTRAINT FK_orders FOREIGN KEY (`dishes_id`) REFERENCES dish (`id`);
+-- INSERT RECORD ----
+INSERT INTO bmi (name)
+VALUES ('Underweight'),
+       ('Normal'),
+       ('Overweight'),
+       ('Obese');
+INSERT INTO meal (name)
+VALUES ('Breadfast'),
+       ('Lunch'),
+       ('Dinner');
+INSERT INTO dish (calo, name, price, bmi_id, meal_id) VALUES
+(250.0, 'Grilled Chicken Salad', 12.99, 1, 1),
+(350.0, 'Beef and Broccoli Stir Fry', 14.99, 2, 2),
+(400.0, 'Spicy Tuna Roll', 9.99, 3, 3),
+(450.0, 'Vegetable Fried Rice', 8.99, 1, 2),
+(300.0, 'Grilled Salmon with Lemon Butter', 17.99, 2, 1),
+(500.0, 'Spaghetti and Meatballs', 12.99, 3, 2),
+(200.0, 'Mixed Berry Smoothie', 6.99, 1, 3),
+(600.0, 'Cheeseburger with Fries', 10.99, 2, 2),
+(350.0, 'Greek Salad', 8.99, 3, 1),
+(400.0, 'Sweet and Sour Chicken', 13.99, 1, 2),
+(450.0, 'Pad Thai Noodles', 11.99, 2, 3),
+(300.0, 'Grilled Shrimp Skewers', 19.99, 3, 1),
+(500.0, 'Margherita Pizza', 15.99, 1, 2),
+(200.0, 'Fresh Fruit Salad', 7.99, 2, 3),
+(600.0, 'BBQ Pulled Pork Sandwich', 11.99, 3, 2),
+(350.0, 'Caesar Salad', 9.99, 1, 1),
+(400.0, 'Beef Tacos', 12.99, 2, 3),
+(450.0, 'Crispy Chicken Sandwich', 13.99, 3, 2),
+(300.0, 'Grilled Vegetable Skewers', 16.99, 1, 1),
+(500.0, 'Beef and Cheddar Burger', 14.99, 2, 2),
+(200.0, 'Green Smoothie', 5.99, 3, 3),
+(600.0, 'Fish and Chips', 16.99, 1, 2),
+(350.0, 'Caprese Salad', 10.99, 2, 1),
+(400.0, 'Chicken Parmesan', 15.99, 3, 3),
+(450.0, 'Beef Fried Rice', 10.99, 1, 2),
+(300.0, 'Grilled Steak with Chimichurri Sauce', 21.99, 2, 1),
+(500.0, 'Vegetarian Pizza', 13.99, 3, 2),
+(200.0, 'Mango Lassi', 4.99, 1, 3),
+(600.0, 'Buffalo Chicken Wings', 9.99, 2, 2),
+(350.0, 'Mixed Greens Salad', 7.99, 3, 1),
+(400.0, 'Pesto Pasta with Grilled Chicken', 14.99, 1, 2),
+(450.0, 'General Tso Chicken', 11.99, 2, 3);
+INSERT INTO orders (name) VALUES
+('John'),
+('Mary'),
+('David');
+INSERT INTO customer (name, address, email, phone, gender, password, age, bmi_id, is_status, order_id)
+VALUES ('Nguyen Van A', '123 Nguyen Hue, Q1', 'nguyenvana@gmail.com', '0987654321', 'male', '1234', 25, 1, 1, 1),
+       ('Tran Thi B', '456 Le Loi, Q2', 'tranthib@gmail.com', '0123456789', 'female', '1234', 30, 2, 1, 2),
+       ('Le Van C', '789 Tran Hung Dao, Q5', 'levanc@gmail.com', '0912345678', 'male', '1234', 40, 3, 1, 3);

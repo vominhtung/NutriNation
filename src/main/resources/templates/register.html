@@ -1,0 +1,134 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Register</title>-->
+<!--  <style>-->
+<!--    .blue{-->
+<!--      color: blue;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Register</h1>-->
+<!--<h3>Enter your Information</h3>-->
+<!--<a href="/home">Form Login</a>-->
+<!--<form th:action="@{/register}" th:object="${register}" method='POST'>-->
+<!--  <th:block th:if="${message}">-->
+<!--    <p th:text="${message}" class="blue"></p>-->
+<!--  </th:block>-->
+<!--<table>-->
+<!--  <tr>-->
+<!--    <td>Name:</td>-->
+<!--    <td><input type='text' th:field="*{name}"></td>-->
+<!--  </tr>-->
+
+<!--  <tr>-->
+<!--    <td>Address:</td>-->
+<!--    <td><input type='text'  th:field="*{address}"></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Email:</td>-->
+<!--    <td><input type='text'  th:field="*{email}"></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>phone:</td>-->
+<!--    <td><input type='text'  th:field="*{phone}"></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>gender:</td>-->
+<!--    <td><input type='text'  th:field="*{gender}"></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Password:</td>-->
+<!--    <td><input type='password'  th:field="*{password}" /></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Age:</td>-->
+<!--    <td><input type='text'  th:field="*{age}" /></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Height:</td>-->
+<!--    <td><input type='text'  th:field="*{height}" /></td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>Weight:</td>-->
+<!--    <td><input type='text'  th:field="*{weight}" /></td>-->
+<!--  </tr>-->
+<!--    <td><input type='hidden' th:field="*{isStatus}" /></td>-->
+<!--  <tr>-->
+<!--    <td><input type="submit" value="register" /></td>-->
+<!--  </tr>-->
+<!--</table>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .blue{
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Register</h1>
+  <h3>Enter your Information</h3>
+  <a href="/home" class="btn btn-primary">Form Login</a>
+  <form th:action="@{/register}" th:object="${register}" method='POST'>
+    <div th:if="${message}" class="alert alert-primary">
+      <p th:text="${message}" class="blue"></p>
+    </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type='text' th:field="*{name}" class="form-control" id="name" required>
+    </div>
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <input type='text'  th:field="*{address}" class="form-control" id="address" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type='email'  th:field="*{email}" class="form-control" id="email" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type='tel'  th:field="*{phone}" class="form-control" id="phone" required>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <input type='text'  th:field="*{gender}" class="form-control" id="gender" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type='password'  th:field="*{password}" class="form-control" id="password" required>
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type='number'  th:field="*{age}" class="form-control" id="age" required>
+    </div>
+    <div class="form-group">
+      <label for="height">Height:</label>
+      <input type='number'  th:field="*{height}" class="form-control" id="height" required>
+    </div>
+    <div class="form-group">
+      <label for="weight">Weight:</label>
+      <input type='number'  th:field="*{weight}" class="form-control" id="weight" required>
+    </div>
+    <input type='hidden' th:field="*{isStatus}" />
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
+</div>
+</body>
+</html>

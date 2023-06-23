@@ -1,0 +1,78 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>order</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Lish Meals In Order</h1>-->
+<!--<a th:href="@{/meals/__${customerId}__ }"><button>Back</button></a>-->
+<!--<table border="1" cellpadding="0" cellspacing="0">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Id</th>-->
+<!--    <th>Name</th>-->
+<!--    <th/>Calo</th>-->
+<!--    <th/>Price</th>-->
+<!--    <th/>Delete</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <th:block th:each="dish : ${order.dishes}">-->
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--      <th th:text="${dish.id}"></th>-->
+<!--      <td th:text="${dish.name}"></td>-->
+<!--      <td th:text="${dish.calo}"></td>-->
+<!--      <td th:text="${dish.price}"></td>-->
+<!--      <td><a th:href="@{/deletedishinorder/{dishId}/{customerId}(dishId=${dish.id}, customerId=${customerId})}"><button>Delete</button></a></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </th:block>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="mt-5 mb-3">List Meals In Order</h1>
+      <a th:href="@{/meals/__${customerId}__ }" class="btn btn-secondary mb-3">Back</a>
+      <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Calo</th>
+          <th>Price</th>
+          <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="dish : ${order.dishes}">
+          <tr>
+            <th th:text="${dish.id}"></th>
+            <td th:text="${dish.name}"></td>
+            <td th:text="${dish.calo}"></td>
+            <td th:text="${dish.price}"></td>
+            <td><a th:href="@{/deletedishinorder/{dishId}/{customerId}(dishId=${dish.id}, customerId=${customerId})}" class="btn btn-danger">Delete</a></td>
+          </tr>
+        </th:block>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

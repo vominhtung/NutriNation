@@ -1,0 +1,88 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>List Dish</h1>-->
+<!--<a href="/customer/list"><button>Back To List Customer</button></a>-->
+<!--<td><a th:href="@{/dish/create}"><button>Add Dish</button></a></td>-->
+
+<!--<table border="1" cellpadding="0" cellspacing="0">-->
+<!--    <tr>-->
+<!--        <th>Name</th>-->
+<!--        <th>Price</th>-->
+<!--        <th>Calo</th>-->
+<!--        <th>Edit</th>-->
+<!--        <th>Delete</th>-->
+<!--    </tr>-->
+<!--    <th:block th:each="dish : ${dishes}">-->
+
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--            <td th:text="${dish.name}"></td>-->
+<!--            <td th:text="${dish.price}"></td>-->
+<!--            <td th:text="${dish.calo}"></td>-->
+<!--            <td><a th:href="@{/adddishtoorder/{dishId}/{orderId}(dishId=${dish.id}, orderId=${1})}"><button>Edit</button></a></td>-->
+<!--            <td><a th:href="@{/dish/delete/__${dish.id}__}"><button>Delete</button></a></td>-->
+
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </th:block>-->
+<!--</table>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Dish</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h1 class="my-5">List Dish</h1>
+    <a href="/customer/list"><button class="btn btn-primary my-3">Back To List Customer</button></a>
+    <a th:href="@{/dish/create}"><button class="btn btn-success my-3">Add Dish</button></a>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Calo</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="dish : ${dishes}">
+            <tr>
+                <td >
+                    <a th:text="${dish.name}" th:href="@{/dish/display/__${dish.id}__}"></a>
+                </td>
+                <td th:text="${dish.price}"></td>
+                <td th:text="${dish.calo}"></td>
+                <td>
+                    <a th:href="@{edit/__${dish.id}__}">
+                        <button class="btn btn-warning">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <a th:href="@{/dish/delete/__${dish.id}__}">
+                        <button class="btn btn-danger">Delete</button>
+                    </a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
